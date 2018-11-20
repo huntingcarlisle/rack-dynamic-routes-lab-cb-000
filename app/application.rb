@@ -10,6 +10,11 @@ class Application
     if req.path.match(/items/)
       @@items.each do |item|
         resp.write "#{item}\n"
+        
+      song_title = req.path.split("/songs/").last #turn /songs/Sorry into Sorry
+      song = @@songs.find{|s| s.title == song_title}
+ 
+      resp.write song.artist
       end
     else
       resp.write "Route not found"
