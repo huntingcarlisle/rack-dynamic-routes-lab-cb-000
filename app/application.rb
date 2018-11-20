@@ -16,15 +16,6 @@ class Application
         resp.write "Item not found"
         resp.status = 400
       end
-      
-      @@items.each do |item|
-        resp.write "#{item}\n"
-        
-      song_title = req.path.split("/songs/").last #turn /songs/Sorry into Sorry
-      song = @@songs.find{|s| s.title == song_title}
- 
-      resp.write song.artist
-      end
     else
       resp.write "Route not found"
       resp.status = 404
