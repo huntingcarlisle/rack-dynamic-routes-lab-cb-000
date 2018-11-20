@@ -15,6 +15,7 @@ class Application
       else
         resp.write "Item not found"
         resp.status = 400
+      end
       
       @@items.each do |item|
         resp.write "#{item}\n"
